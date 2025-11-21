@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position Closed</title>
+</head>
+<body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f5f5f5;">
+    <div style="background-color: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+        <h1 style="color: #1976d2; margin-top: 0; border-bottom: 3px solid #1976d2; padding-bottom: 10px;">
+            📊 Position Closed Successfully
+        </h1>
+        
+        <div style="background-color: #e8f5e9; padding: 20px; border-radius: 5px; margin: 20px 0; display: flex; align-items: flex-start;">
+            <div class="profit-bar" data-profit-color="{{profit_color}}" style="width: 5px; border-radius: 2px; margin-right: 12px;"></div>
+            <div style="flex: 1;">
+                <h2 data-profit-color="{{profit_color}}" style="margin-top: 0; font-size: 28px;">
+                    Profit/Loss: {{profit}}
+                </h2>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">
+                    Your position has been automatically closed by the trading bot.
+                </p>
+            </div>
+        </div>
+        
+        <div style="margin: 25px 0;">
+            <h3 style="color: #333; border-bottom: 2px solid #e0e0e0; padding-bottom: 8px;">Position Details:</h3>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                <tr style="background-color: #f9f9f9;">
+                    <td style="padding: 12px; border: 1px solid #e0e0e0; font-weight: bold;">Symbol:</td>
+                    <td style="padding: 12px; border: 1px solid #e0e0e0;">{{symbol}}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #e0e0e0; font-weight: bold;">Side:</td>
+                    <td style="padding: 12px; border: 1px solid #e0e0e0;">
+                        <span style="background-color: #e3f2fd; padding: 4px 12px; border-radius: 4px; font-weight: bold;">
+                            {{side}}
+                        </span>
+                    </td>
+                </tr>
+                <tr style="background-color: #f9f9f9;">
+                    <td style="padding: 12px; border: 1px solid #e0e0e0; font-weight: bold;">Entry Price:</td>
+                    <td style="padding: 12px; border: 1px solid #e0e0e0;">{{entry_price}}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #e0e0e0; font-weight: bold;">Exit Price:</td>
+                    <td style="padding: 12px; border: 1px solid #e0e0e0;">{{exit_price}}</td>
+                </tr>
+                <tr style="background-color: #f9f9f9;">
+                    <td style="padding: 12px; border: 1px solid #e0e0e0; font-weight: bold;">Quantity:</td>
+                    <td style="padding: 12px; border: 1px solid #e0e0e0;">{{quantity}}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #e0e0e0; font-weight: bold;">Closed At:</td>
+                    <td style="padding: 12px; border: 1px solid #e0e0e0;">{{timestamp}}</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div style="background-color: #e3f2fd; padding: 20px; border-radius: 5px; margin: 20px 0;">
+            <h3 style="color: #1565c0; margin-top: 0;">🔄 Next Steps (Automated):</h3>
+            <div style="display: flex; align-items: center; margin: 10px 0;">
+                <span style="background-color: #1976d2; color: white; padding: 5px 10px; border-radius: 50%; margin-right: 10px;">1</span>
+                <span>Converting funds to target cryptocurrency...</span>
+            </div>
+            <div style="display: flex; align-items: center; margin: 10px 0;">
+                <span style="background-color: #90caf9; color: #1565c0; padding: 5px 10px; border-radius: 50%; margin-right: 10px;">2</span>
+                <span>Automatic withdrawal to external wallet...</span>
+            </div>
+            <div style="display: flex; align-items: center; margin: 10px 0;">
+                <span style="background-color: #90caf9; color: #1565c0; padding: 5px 10px; border-radius: 50%; margin-right: 10px;">3</span>
+                <span>Reset configuration for next trade...</span>
+            </div>
+        </div>
+        
+        <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 20px 0;">
+            <p style="margin: 0; font-size: 14px;">
+                <strong>Bot Status:</strong> 
+                <span style="color: #1976d2; font-weight: bold;">PROCESSING</span> - Executing post-trade automation
+            </p>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e0e0e0;">
+            <p style="color: #666; font-size: 12px; margin: 0;">
+                This is an automated message from your Crypto Trading Bot.<br>
+                Please do not reply to this email.
+            </p>
+        </div>
+        </div>
+    <script>
+        (function(){
+            var els = document.querySelectorAll('[data-profit-color]');
+            for(var i=0;i<els.length;i++){
+                var el = els[i];
+                var color = el.getAttribute('data-profit-color');
+                if(!color){
+                    color = '#cfd8dc';
+                }
+                // apply as background for elements marked as profit-bar, otherwise apply as text color
+                if(el.classList && el.classList.contains('profit-bar')){
+                    el.style.backgroundColor = color;
+                } else {
+                    el.style.color = color;
+                }
+            }
+        })();
+    </script>
+</body>
+</html>
