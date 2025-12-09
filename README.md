@@ -46,8 +46,8 @@ A fully automated cryptocurrency trading bot with position monitoring, auto-clos
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/crypto-trading-bot.git
-cd crypto-trading-bot
+git clone https://github.com/yourusername/Bybit.git
+cd Bybit
 
 # Create virtual environment
 python -m venv venv
